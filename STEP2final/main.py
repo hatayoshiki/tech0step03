@@ -7,13 +7,13 @@ import pandas as pd
 import os
 
 # 環境変数からAPIキーを取得
-api_key = os.getenv('GOOGLE_MAPS_API_KEY')
+api_key = st.secrets["GOOGLE_MAPS_API_KEY"]
 
 # Google Mapsクライアントを正しく初期化
 gmaps = googlemaps.Client(key=api_key)
 
 # OpenAI APIキーを設定
-openai.api_key = os.getenv("OPENAI_API_KEY")
+openai.api_key = st.secrets["OPENAI_API_KEY"]
 
 # 住所を緯度と経度に変換する関数
 def geocode_address(address):
